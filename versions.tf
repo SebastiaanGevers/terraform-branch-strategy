@@ -4,10 +4,21 @@ terraform {
       source = "hashicorp/azurerm"
       version = "4.6.0"
     }
+
+     helm = {
+      source = "hashicorp/helm"
+      version = "2.16.1"
+    }
+     kubernetes = {
+      source = "hashicorp/kubernetes"
+      version = "2.33.0"
+    }
+
     null = {
       source = "hashicorp/null"
       version = "3.2.3"
     }
+    
   }
 
   backend "azurerm" {
