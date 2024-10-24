@@ -35,7 +35,7 @@ variable "neo4j_password" {
 
 variable "neo4j_username" {
   type = string
-  default = "datahub"
+  default = "neo4j"
 }
 
 variable "postgres_db_name" {
