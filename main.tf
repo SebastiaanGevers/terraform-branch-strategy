@@ -36,29 +36,17 @@ module "aks" {
   
 }
 
+module "postgres" {
+  source = "./modules/postgres"
 
+  prefix = var.prefix
+  env_prefix = var.env_prefix
+  resource_group_name = data.azurerm_resource_group.rg-tfworkshops.name
+  virtual_network_name = azurerm_virtual_network.vn.name
+  location = local.location
 
-# module "aks" {
-#   source = "./modules/aks"
+  postgres_admin_password = var.postgres_admin_password
+  server_zone = 1
 
-#   prefix = var.prefix
-#   env_prefix = var.env_prefix
-#   resource_group_name = data.azurerm_resource_group.rg-tfworkshops.name
-#   virtual_network_name = azurerm_virtual_network.vn.name
-
-#   depends_on = [ azurerm_virtual_network.vn ]
-# }
-
-# module "postgres" {
-#   source = "./modules/postgres"
-
-#   prefix = var.prefix
-#   env_prefix = var.env_prefix
-#   resource_group_name = data.azurerm_resource_group.rg-tfworkshops.name
-#   virtual_network_name = azurerm_virtual_network.vn.name
-
-#   postgres_admin_password = var.postgres_admin_password
-#   server_zone = 1
-
-#   depends_on = [ azurerm_virtual_network.vn ]
-# }
+  depends_on = [ azurerm_virtual_network.vn ]
+}

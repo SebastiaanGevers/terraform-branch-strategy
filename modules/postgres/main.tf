@@ -39,7 +39,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "postgres-dns-zone-link
 resource "azurerm_postgresql_flexible_server" "postgres" {
   name                          = "${var.prefix}-${var.env_prefix}-postgres"
   resource_group_name           = data.azurerm_resource_group.rg-tfworkshops.name
-  location                      = data.azurerm_resource_group.rg-tfworkshops.location
+  location                      = var.location
   version                       = "16"
   delegated_subnet_id           = azurerm_subnet.postgres-sn.id
   private_dns_zone_id           = azurerm_private_dns_zone.postgres-dns-zone.id

@@ -7,3 +7,9 @@
       type = string   
       description = "environment prefix for all resources"
 }
+
+variable "postgres_admin_password" {
+  type = string
+  description = "progress pasword"
+  sensitive = true
+}

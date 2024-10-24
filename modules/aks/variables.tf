@@ -19,3 +19,4 @@ variable "virtual_network_name" {
 variable "location" {
   type = string
 }
+
